@@ -22,7 +22,7 @@
 		</property>
 		<property name="show_sql">true</property>
 		<!-- 如果表不存在，则自动创建 -->
-<property name="hbm2ddl.auto">create</property>         
+<property name="hbm2ddl.auto">update</property>         
 		<mapping resource="com/dao/User.hbm.xml" />
 
 	</session-factory>

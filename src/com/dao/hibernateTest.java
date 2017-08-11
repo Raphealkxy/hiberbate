@@ -14,32 +14,40 @@ import com.timmy.uitls.Utils;
 public class hibernateTest { 
 	
 	
+	private Session session=null;
+	private Transaction tx=null;
 	@Test
 	public   void add() {
 
-	
-	
-		Session session=Utils.getSessionFactory().openSession();
+	try{
+	     session=Utils.getSessionFactory().openSession();
 		//开启事务
-		Transaction tx=session.beginTransaction();
+		 tx=session.beginTransaction();
 		//写具体逻辑crud事件
 
 		user2 user=new user2();
 		user.setEmail("1277609958@qq.com");
-		//user.setId(12);
-		//System.out.println(1);
+	
 
-		user.setPassword("112345567");
+		user.setPassword("1345567");
 		user.setSex("man");
 		user.setTelephone("18861457582");
 		user.setUsername("xianuzh");
 	   //提交事务
-		session.save(user);
+		session.saveOrUpdate(user);
 		tx.commit();
 		
-		//关闭资源
+	}catch(Exception e){
+		tx.rollback();
+	}finally{
 		session.close();
-	//	sessionFactory.close();
+		//	sessionFactory.close();
+
+	}
+	
+		
+		
+		//关闭资源
 		System.out.println(1);
 	}
 
