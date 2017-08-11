@@ -1,6 +1,6 @@
 package com.dao;
 
-public class user2 {
+public class User2 {
 
 	
 	
@@ -46,5 +46,13 @@ public class user2 {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	@Override
+	public String toString() {
+		return "user2 [id=" + id + ", username=" + username + ", password="
+				+ password + ", sex=" + sex + ", email=" + email
+				+ ", telephone=" + telephone + "]";
+	}
+	
+	
 	
 }
